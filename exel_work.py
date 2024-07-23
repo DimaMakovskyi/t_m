@@ -13,7 +13,7 @@ count = int(input())
 for letter in ["C"]:
     while True:
         word = ws[f"{letter}{count}"].value
-        if count == 33362:
+        if count == 10:
             count = 21
             wb.save(fn)
             wb.close()
