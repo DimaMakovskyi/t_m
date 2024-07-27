@@ -2,28 +2,24 @@ from music import Speech
 from openpyxl import load_workbook
 import translator_words
 from time import sleep
-trans = translator_words.Trans()
 fn = r"words\words.xlsx"
 wb = load_workbook(fn)
 ws = wb["en"]
-wu = wb["ua"]
 count = int(input())
-for letter in ["E"]:
-    while True:
-        word = ws[f"{letter}{count}"].value
-        if count == 1319:
-            wb.save(fn)
-            wb.close()
-            break
-        was_translate = trans.trans(word)
-        print(was_translate)
-        wu[f"{letter}{count}"] = was_translate
-        if count%20 == 0:
-            print("відпочинок")
-            print(count)
-            wb.save(fn)
-            sleep(5)
+let = ["A", "B", "C", "D", "E"]
+num = [6403, 1666, 3309, 1564, 1319]
+for letter in range(len(let)):
+    while count != num[letter]:
+        word = ws[f"{let[letter]}{count}"].value
+        print(count)
+        if "|" in word:
+            ws[f"{let[letter]}{count}"] = word.replace("|", " ")
+        if "@" in word:
+            ws[f"{let[letter]}{count}"] = word.replace("@", " ") 
+        if "?" in word:
+            ws[f"{let[letter]}{count}"] = word.replace("?", " ") 
         count += 1
+    count = 2
 
 
 wb.save(fn)
