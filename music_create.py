@@ -6,8 +6,8 @@ wb = load_workbook(fn)
 ws = wb["en"]
 count = int(input())
 create_music = Speech()
-for letter in ["C"]:
-    while count != 3309:
+for letter in ["E"]:
+    while count != 1319:
         word = ws[f"{letter}{count}"].value
         create_music.create_speech(word)
         print(count)
